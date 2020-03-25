@@ -16,11 +16,12 @@ roles = {
         'software' : 'Software Team',
         'software team' : 'Software Team',
 
+        'ATLO' : 'ATLO Team',
         'atlo' : 'ATLO Team',
         'atlo team' : 'ATLO Team',
 
 
-        'aero' : 'My Dudes',
+        'aero' : 'Aero Team',
         'aero team' : 'Aero Team',
         'aerospace team' : 'Aero Team'}
 
@@ -34,8 +35,13 @@ client = discord.Client()
 async def on_message(message):
     member = message.author
     #ignore self messages, or messages that mention the bot
-    if member == client.user or client.user not in message.mentions:
+    if member == client.user:
         return
+
+    # if bot not mentioned, skip
+    if client.user not in message.mentions and '<@&692173852154921040>' not in message.content:
+        return
+
     # remove discord username in message
     content = message.content[22:].strip().lower()
     # escape null
