@@ -20,6 +20,9 @@ roles = {
         'atlo' : 'ATLO Team',
         'atlo team' : 'ATLO Team',
 
+        'alumn' : 'Alumni',
+        'alum' : 'Alumni',
+        'alumni' : 'Alumni',
 
         'aero' : 'Aero Team',
         'aero team' : 'Aero Team',
@@ -48,7 +51,7 @@ async def on_message(message):
     if content is not None:
         role_to_add = roles.get(content)
         if not role_to_add:
-            await message.channel.send('role must be one of: me, sw, atlo, aero, ee')
+            await message.channel.send('role must be one of: me, sw, atlo, aero, ee, alumni')
             return
         # get role object
         role = discord.utils.get(message.guild.roles, name=role_to_add)
