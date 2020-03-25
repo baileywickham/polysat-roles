@@ -47,6 +47,7 @@ async def on_message(message):
         # get role object
         role = discord.utils.get(message.guild.roles, name=role_to_add)
         await member.add_roles(role)
+        await message.channel.send(f'you have been added to {role}')
 
     else:
         await message.channel.send('role must be one of: me, sw, atlo, aero, ee')
