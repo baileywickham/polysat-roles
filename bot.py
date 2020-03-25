@@ -55,16 +55,8 @@ async def on_message(message):
         await member.add_roles(role)
         await message.channel.send(f'you have been added to {role}')
 
+    # Sent blank message
     else:
         await message.channel.send('role must be one of: me, sw, atlo, aero, ee')
-
-
-#@client.event
-#async def on_member_join(member):
-#    await member.create_dm()
-#    await member.dm_channel.send(
-#        f'Hi {member.name}, reply with "me, sw, atlo, aero, or ee" to be added to your respective team'
-#    )
-
 
 client.run(token)
