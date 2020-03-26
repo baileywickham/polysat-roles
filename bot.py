@@ -32,7 +32,7 @@ roles = {
         'aero team' : 'Aero Team',
         'aerospace team' : 'Aero Team'}
 
-with open("token") as f:
+with open("/root/polysat-roles/token") as f:
     token = f.readline().strip('\n')
 
 client = discord.Client()
