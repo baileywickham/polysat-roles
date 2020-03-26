@@ -1,6 +1,7 @@
 import os
 import discord
 
+BOTID = '<@&692173852154921040>'
 
 roles = {
         'me' : 'ME Team',
@@ -42,11 +43,11 @@ async def on_message(message):
         return
 
     # if bot not mentioned, skip
-    if client.user not in message.mentions and '<@&692173852154921040>' not in message.content:
+    if client.user not in message.mentions and '' not in message.content:
         return
 
     # remove discord username in message
-    content = message.content[22:].strip().lower()
+    content = message.content.replace(BOTID, '').strip().lower()
     # escape null
     if content is not None:
         role_to_add = roles.get(content)
