@@ -1,7 +1,6 @@
 import os
 import discord
 
-BOTID = '<@&692173852154921040>'
 ERRMSG = 'role must be one of: me, sw, atlo, aero, ee, alumni, pr'
 
 roles = {
@@ -41,17 +40,20 @@ client = discord.Client()
 
 @client.event
 async def on_message(message):
+    botid = str(client.user.id)
     member = message.author
     #ignore self messages, or messages that mention the bot
     if member == client.user:
         return
 
     # if bot not mentioned, skip
-    if client.user not in message.mentions and '' not in message.content:
+    if client.user not in message.mentions and '692172262681346140' not in message.content:
+        print(message.content)
         return
 
     # remove discord username in message
-    content = message.content.replace(BOTID, '').strip().lower()
+    content = message.content[22:].strip().lower()
+    #content = message.content.replace(f'<@!{botid}>', '').strip(' ').lower()
     # escape null
     if content is not None:
         role_to_add = roles.get(content)
